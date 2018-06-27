@@ -18,8 +18,7 @@ body{
 #platter{
   border-radius: 100%;
   position: absolute;
-  background-color: black;
-  background-image: url(img/transparent-texture.png);
+  background-image: url(img/transparent-texture.png), url(img/nasa_platter.png);
   height: 340px;
   width: 340px;
   margin-left: 50px;
@@ -27,6 +26,14 @@ body{
   -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
   box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+}
+
+#tone-arm{
+  position: absolute;
+  height: 450px;
+  margin-left: 395px;
+  margin-top: -125px;
+  transform: rotate(20deg);
 }
 
 #spindle{
