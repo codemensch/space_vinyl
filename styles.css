@@ -15,25 +15,34 @@ body{
   box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
 }
 
-#platter{
-  border-radius: 100%;
-  position: absolute;
-  background-color: black;
-  background-image: url(img/transparent-texture.png);
-  height: 340px;
-  width: 340px;
-  margin-left: 50px;
-  margin-top: 5px;
-  -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
-  box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
-}
+  #tone-arm-real{
+    position: absolute;
+    height: 494px;
+    width: 123.5px;
+    margin-left: 370px;
+    margin-top: -155px;
+    transform: rotate(0deg);
+  }
 
-#spindle{
-  margin: auto;
-  margin-top: 50%;
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
-  background: radial-gradient(silver, black);
-}
+  #platter{
+    border-radius: 100%;
+    position: absolute;
+    background-color: black;
+    background-image: url(img/transparent-texture.png);
+    height: 340px;
+    width: 340px;
+    margin-left: 50px;
+    margin-top: 5px;
+    -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+  }
+
+    #spindle{
+      margin: auto;
+      margin-top: 50%;
+      height: 15px;
+      width: 15px;
+      border-radius: 100%;
+      background: radial-gradient(silver, black);
+    }
