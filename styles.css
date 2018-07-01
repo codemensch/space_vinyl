@@ -27,6 +27,20 @@ body{
     box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
   }
 
+  #on{
+    position: absolute;
+    font-family: "arial black";
+    margin-left: 77px;
+    margin-top: 300px;
+  }
+
+  #off{
+    position: absolute;
+    font-family: "arial black";
+    margin-left: 36px;
+    margin-top: 257px;
+  }
+
   #on-off-knob{
     position: absolute;
     height: 40px;
