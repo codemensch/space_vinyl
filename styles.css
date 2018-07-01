@@ -15,6 +15,39 @@ body{
   box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
 }
 
+  #knob-base{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-top: 285px;
+    margin-left: 18px;
+    -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+  }
+
+  #on-off-knob{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border: 5px solid black;
+    background: linear-gradient(to right, #555151 , #adaaaa);
+    background-color: #adaaaa;
+    margin-top: 285px;
+    margin-left: 18px;
+  }
+
+    #knob-select{
+      height: 15px;
+      width: 5px;
+      background-color: black;
+      border-radius: 10%;
+      margin: auto;
+      margin-top: 3px;
+    }
+
   #tone-arm{
     position: absolute;
     height: 526.5px;
