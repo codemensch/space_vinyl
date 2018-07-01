@@ -37,7 +37,6 @@ body{
   #platter{
     border-radius: 100%;
     position: absolute;
-    background-color: black;
     height: 340px;
     width: 340px;
     margin-left: 50px;
