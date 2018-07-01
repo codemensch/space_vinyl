@@ -15,20 +15,29 @@ body{
   box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
 }
 
-  #tone-arm-real{
+  #tone-arm{
     position: absolute;
-    height: 494px;
-    width: 123.5px;
-    margin-left: 370px;
-    margin-top: -155px;
+    height: 526.5px;
+    width: 129.35px;
+    margin-left: 376px;
+    margin-top: -170px;
     transform: rotate(0deg);
+  }
+
+  #matt{
+    border-radius: 100%;
+    position: absolute;
+    background-image: url(img/transparent-texture.png), url(img/nasa.png);
+    height: 340px;
+    width: 340px;
+    margin-left: 50px;
+    margin-top: 5px;
   }
 
   #platter{
     border-radius: 100%;
     position: absolute;
     background-color: black;
-    background-image: url(img/transparent-texture.png);
     height: 340px;
     width: 340px;
     margin-left: 50px;
