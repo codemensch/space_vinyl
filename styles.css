@@ -4,8 +4,30 @@ body{
   /*background-repeat: no-repeat;*/
 }
 
+#wrapper{
+  text-align: center;
+}
+
+#collection{
+  display: inline-block;
+}
+
+  .album{
+    height: 350px;
+    width: 350px;
+    border-radius: 2%;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+  }
+
+  #mercury{
+    background-image: url(img/mercury.jpg);
+  }
+
 #table-base{
-  margin: auto;
+  display: inline-block;
   width: 500px;
   height: 350px;
   background-image: url(img/woodgrain_small.jpg);
@@ -63,6 +85,7 @@ body{
     }
 
   #tone-arm{
+    display: block;
     position: absolute;
     height: 526.5px;
     width: 129.35px;
