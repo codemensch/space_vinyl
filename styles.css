@@ -10,20 +10,45 @@ body{
 
 #collection{
   display: inline-block;
+  perspective: 600px;
+  height: 350px;
+  width: 350px;
 }
 
   .album{
-    height: 350px;
-    width: 350px;
+    width: 100%;
+    height: 100%;
     border-radius: 2%;
     background-repeat: no-repeat;
-    -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
-    box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+    transition: transform 1s;
+    transform-origin: bottom center;
+    position: relative;
+    transform-style: preserve-3d;
   }
 
+    .album-face{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      border-radius: 2%;
+    }
+
+      .album-face-front{
+        background-image: url(img/mercury.jpg);
+      }
+
+      .album-face-back{
+        background-color: gray;
+        transform: rotateX( 180deg );
+      }
+
+      .album.album-flipped{
+        transform: rotateX( 180deg );
+      }
+
   #mercury{
-    background-image: url(img/mercury.jpg);
+    
   }
 
 #table-base{
