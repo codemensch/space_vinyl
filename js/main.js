@@ -1,6 +1,19 @@
 $(document).ready(function(){
-  let vinyl = $.getJSON("https://archive.org/details/georgeblood?&sort=-downloads&page=5", function(data){
+  (function(){
+    var widgetIframe = document.getElementById('sc-widget'),
+        widget       = SC.Widget(widgetIframe);
 
-  });
-  console.log(vinyl);
+    widget.bind(SC.Widget.Events.READY, function() {
+      widget.play();
+      
+      // get current level of volume
+      widget.getVolume(function(volume) {
+        console.log('current volume value is ' + volume);
+      });
+      // set new volume level
+      widget.setVolume(50);
+      // get the value of the current position
+    });
+
+  }());
 });
