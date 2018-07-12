@@ -1,6 +1,23 @@
 $(document).ready(function(){
-  let vinyl = $.getJSON("https://archive.org/details/georgeblood?&sort=-downloads&page=5", function(data){
+  (function(){
+    var widgetIframe = document.getElementById('sc-widget'),
+        widget       = SC.Widget(widgetIframe);
+    var vintageIframe = document.getElementById('vintage-widget'),
+        vintage       = SC.Widget(vintageIframe);
+    var rocketIframe = document.getElementById('rocket-widget'),
+        rocket       = SC.Widget(rocketIframe);    
 
-  });
-  console.log(vinyl);
+    widget.bind(SC.Widget.Events.READY, function() {      
+      
+    });
+
+    vintage.bind(SC.Widget.Events.READY, function() {
+     
+    });
+
+    rocket.bind(SC.Widget.Events.READY, function() {
+     
+    });
+
+  }());
 });

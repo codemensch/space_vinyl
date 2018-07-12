@@ -153,3 +153,9 @@ body{
       border-radius: 100%;
       background: radial-gradient(silver, black);
     }
+
+/*SoundCloud*/
+
+.widgets{
+  display: none;
+}
