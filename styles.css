@@ -13,6 +13,10 @@ body{
   perspective: 600px;
   height: 350px;
   width: 350px;
+  -webkit-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+  box-shadow: 10px 10px 7px 0px rgba(0,0,0,0.5);
+  border-radius: 2%;
 }
 
   .album{
