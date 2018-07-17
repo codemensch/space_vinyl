@@ -2,18 +2,19 @@
 <html>
   <head>
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   </head>
   <body>
     <div id="wrapper">
       <!-- Wood base of the turntable -->
       <div id="table-base">
         <!-- On/off knob -->
-        <div id="on">I</div>
-        <div id="off">O</div>
-        <div id="knob-base"></div>
-        <div id="on-off-knob">
-          <div id="knob-select"></div>
-        </div>
+          <div id="on"></div>
+          <div id="off"></div>
+          <div id="knob-base"></div>
+          <div id="on-off-knob">
+            <div id="knob-select"></div>
+          </div>
         <!-- Platter that spins -->
         <div id="platter"></div>
         <div id="matt">
@@ -24,9 +25,22 @@
       </div>
       <!-- Vinyl -->
       <div id="collection">
-        <div class="album" id="mercury">
-          <div class="album-face album-face-front"></div>
-          <div class="album-face album-face-back"></div>
+        <div id="vinyl">
+          <img src="img/vinyl.png" alt="Vinyl record" height="340" width="340">
+        </div>
+        <div>
+          <div class="album" id="space-sounds"></div>
+          <div class="album" id="vintage-sounds"></div>
+          <div class="album" id="rocket-sounds"></div>
+          <div class="album" id="mercury-sounds"></div>
+          <div class="album" id="kennedy-sounds"></div>
+          <div class="album" id="apollo-sounds"></div>
+          <div class="album" id="shuttle-sounds"></div>
+          <div class="album" id="discovery-sounds"></div>
+        </div>
+        <div id="btn-overlay">
+          <i class="fas fa-arrow-alt-circle-left fa-4x"></i>
+          <i class="fas fa-arrow-alt-circle-right fa-4x"></i>
         </div>
       </div>
     </div>

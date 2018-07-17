@@ -1,4 +1,25 @@
-$(document).ready(function(){
+$( document ).ready(function() {
+  
+
+  /*
+  $('#sc-widget').on('load', function(){
+
+  });
+
+  function getArtwork(){
+    let contents = $('#sc-widget').contents();
+    console.log(contents);
+    //let artwork = document.querySelectorAll('iframe');
+    //console.log(artwork);
+    //let albums = document.querySelectorAll('.album');
+    //for (let i=0; i<artwork.length; i++){
+      //albums[i].style.backgroundImage = artwork[i].style.backgroundImage;
+    //}
+  //}
+
+  getArtwork();
+*/
+
   (function(){
     var widgetIframe = document.getElementById('sc-widget'),
         widget       = SC.Widget(widgetIframe);
