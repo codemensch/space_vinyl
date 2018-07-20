@@ -34,7 +34,7 @@ body{
     border-radius: 2%;
     background-repeat: no-repeat;
     position: absolute;
-    transition: margin-left 2s, z-index 0s;
+    -webkit-transition: margin-left .5s;
     border-radius: 2%;
   }
 
@@ -68,9 +68,6 @@ body{
 
       #discovery-sounds{
         background-image: url(https://i1.sndcdn.com/artworks-000094197551-44j85m-t500x500.jpg);
-        animation: next-album 2s;
-        animation-delay: 1s;
-        animation-fill-mode: forwards;
       }
 
 #btn-overlay{
@@ -94,7 +91,7 @@ body{
     }
 
 
-
+/*Next and Previous Buttons*/
   i:nth-child(1){
     left: 25px;
   }
@@ -219,19 +216,25 @@ body{
     }
 
 /*CSS Animations*/
-@keyframes next-album {
+@keyframes animate-album {
   0%{
     margin-left: 0px;
   }
 
-  50%{
+  100%{
     margin-left: 400px;
   }
-
+  /*
   100%{
-    z-index: -1;
     margin-left:0px
   }
+  */
+}
+
+.animate-album{
+  animation: animate-album .5s;
+  /*animation-delay: .5s;*/
+  animation-fill-mode: forwards;
 }
 
 /*SoundCloud*/
