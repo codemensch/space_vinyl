@@ -1,10 +1,47 @@
-$( document ).ready(function() {
+$(window).bind("load", function() {
+
+  let onOff = 'off';
+  let recordLoaded = false;
+
+  $('#on-off-knob').click(function(){
+    $('#on-off-knob').toggleClass('knob-rotate');
+  });
+  
+
+
+  var albums = document.getElementsByClassName('album');
+  var playlists = document.getElementsByTagName('iframe');
+  var activeAlbum = albums[albums.length - 1];
+  var activeAlbumID = activeAlbum.id;
+  var activeAlbumPre = activeAlbumID.split('-');
+  var activePlaylist = activeAlbumPre[0] + '-widget';
+  //var widgetSRC = $('#' + activePlaylist).attr('src');
+  
+  var widget = SC.Widget(document.getElementById(activePlaylist));
+  widget.bind(SC.Widget.Events.READY, function() {
+    console.log('Ready...');
+  });
+
+
+  //This will be the play/pause function
+  $('#tone-arm').click(function() {
+    if (onOff == 'off'){
+      onOff = 'on';
+      widget.toggle();
+    }
+    else {
+      onOff = 'off';
+      widget.toggle();  
+    }
+  });
+
+
   //Choose Album/Playlist
   $('i:nth-child(1), i:nth-child(2)').click(function(){
-    //Put all albums in a node
-    let albums = document.getElementsByClassName('album');
     //Click previous button
     if (this.id == 'prev'){
+      //$("[src='js/widget_load.js']").remove();
+      //$('body').append('<script type="text/javascript" src="js/widget_load.js"></script>');
       //Pull out album from bottom of stack
       $(albums[0]).addClass('animate-album');
       //Wait for animation to finish
@@ -14,11 +51,19 @@ $( document ).ready(function() {
         //Remove animation styles/margin so doesn't re-fire on append
         $(albums[0]).removeClass('animate-album');
         //Put bottom album on top
-        $('#stack').append($(albums[0]));
+        $('#stack').append(albums[0]);
         //Force browser to calculate margin value
         $(albums[albums.length - 1]).css('margin-left');
         //Transition album back to original position
         $(albums[albums.length - 1]).css('margin-left', '0px');
+        
+        albums = document.getElementsByClassName('album');
+        activeAlbum = albums[albums.length - 1];
+        activeAlbumID = activeAlbum.id;
+        activeAlbumPre = activeAlbumID.split('-');
+        activePlaylist = activeAlbumPre[0] + '-widget';
+        //widgetSRC = $('#' + activePlaylist).attr('src');
+        widget = SC.Widget(document.getElementById(activePlaylist));
       });
     }
     else{
@@ -36,14 +81,36 @@ $( document ).ready(function() {
         $(albums[0]).css('margin-left');
         //Transition album back to original position
         $(albums[0]).css('margin-left', '0px');
+        albums = document.getElementsByClassName('album');
+        activeAlbum = albums[albums.length - 1];
+        activeAlbumID = activeAlbum.id;
+        activeAlbumPre = activeAlbumID.split('-');
+        activePlaylist = activeAlbumPre[0] + '-widget';
+        //widgetSRC = $('#' + activePlaylist).attr('src');
+        widget = SC.Widget(document.getElementById(activePlaylist));
       });
     }
   });
-  /*
-  $('#sc-widget').on('load', function(){
 
+  //Click event to load vinyl record
+  $('#btn-overlay').click(function(){
+    loadAlbum(onOff);
   });
 
+  function loadAlbum(onOrOff){
+    if (onOrOff == 'off'){
+      console.log('the table is off');
+      //load the vinyl record
+    }
+    else {
+      //tell user to replace the tone arm or turn off the turntable
+    }
+  }
+
+    
+
+
+  /*
   function getArtwork(){
     let contents = $('#sc-widget').contents();
     console.log(contents);
@@ -56,27 +123,5 @@ $( document ).ready(function() {
   //}
 
   getArtwork();
-*/
-
-  (function(){
-    var widgetIframe = document.getElementById('sc-widget'),
-        widget       = SC.Widget(widgetIframe);
-    var vintageIframe = document.getElementById('vintage-widget'),
-        vintage       = SC.Widget(vintageIframe);
-    var rocketIframe = document.getElementById('rocket-widget'),
-        rocket       = SC.Widget(rocketIframe);    
-
-    widget.bind(SC.Widget.Events.READY, function() {      
-      
-    });
-
-    vintage.bind(SC.Widget.Events.READY, function() {
-     
-    });
-
-    rocket.bind(SC.Widget.Events.READY, function() {
-     
-    });
-
-  }());
+  */
 });
