@@ -1,9 +1,21 @@
+$('#vinyl-rotate').css('animation-play-state', 'paused');
+
 $(window).bind("load", function() {
 
   let onOff = 'off';
   let recordLoaded = false;
 
+
+
   $('#on-off-knob').click(function(){
+    if(onOff == 'off'){
+      onOff = 'on';
+      $('#vinyl-rotate').css('animation-play-state', 'running');
+    }
+    else {
+      onOff = 'off';
+      $('#vinyl-rotate').css('animation-play-state', 'paused');
+    }
     $('#on-off-knob').toggleClass('knob-rotate');
   });
   
@@ -100,7 +112,16 @@ $(window).bind("load", function() {
   function loadAlbum(onOrOff){
     if (onOrOff == 'off'){
       console.log('the table is off');
-      //load the vinyl record
+      $('#vinyl').addClass('animate-vinyl-on');
+      $('#vinyl').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(f) {
+        $('#vinyl').css('margin-left', '-464px');
+        $('#vinyl').removeClass('animate-vinyl-on');
+        $('#matt').prepend(document.getElementById('vinyl'));
+        $('#vinyl').css('margin-left', '0px');
+        //$('#matt').append(document.getElementById('spindle'));
+        //load the vinyl record
+      });
+      recordLoaded = true;
     }
     else {
       //tell user to replace the tone arm or turn off the turntable

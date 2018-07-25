@@ -1,6 +1,7 @@
 body{
   margin-top: 150px;
   background-color: #a0d9a2;
+  min-width: 530px;
   /*background-repeat: no-repeat;*/
 }
 
@@ -21,12 +22,17 @@ body{
 
   #vinyl{
     position: absolute;
+    height: 340px;
   }
 
-    #vinyl img{
-      margin-left: 5px;
-      margin-top: 5px;
+    #vinyl-rotate{
+      height: 340px;
     }
+
+      #vinyl img{
+        /*margin-left: 5px;
+        margin-top: 5px;*/
+      }
 
   .album{
     width: 350px;
@@ -240,6 +246,35 @@ body{
   animation: animate-album .5s;
   /*animation-delay: .5s;*/
   animation-fill-mode: forwards;
+}
+
+@keyframes animate-vinyl-on {
+  0%{
+    margin-left: 0px;
+  }
+
+  100%{
+    margin-left: -464px;
+  }
+}
+
+.animate-vinyl-on {
+  animation: animate-vinyl-on 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.rotate {
+  animation: rotate 2s infinite linear;
+  animation-play-state: running;
 }
 
 /*SoundCloud*/
