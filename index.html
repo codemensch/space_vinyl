@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="styles.css" rel="stylesheet">
+    <link href="css/alert.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   </head>
   <body>
@@ -17,16 +18,17 @@
           </div>
         <!-- Platter that spins -->
         <div id="platter"></div>
-        <div id="matt">
+        <div id="matt" class="rotate-matt">
           <div id="spindle"></div>
         </div>
         <!-- Tone arm with needle -->
-        <img src="img/tone_arm_new.png" id="tone-arm">
+        <img src="img/tone_arm_new.png" id="tone-arm" class="tone-arm-off">
+        <div id='vinyl-placeholder'></div>
       </div>
       <!-- Vinyl -->
       <div id="collection">
         <div id='vinyl'>
-          <div id="vinyl-rotate" class='rotate'>
+          <div id="vinyl-rotate" class='rotate-vinyl'>
             <img src="img/vinyl.png" alt="Vinyl record" height="340" width="340">
           </div>
         </div>
@@ -40,11 +42,19 @@
           <div class="album" id="shuttle-sounds"></div>
           <div class="album" id="discovery-sounds"></div>
         </div>
-        <div id="btn-overlay">
-          <i id='prev' class="fas fa-arrow-alt-circle-left fa-4x"></i>
-          <i id='next' class="fas fa-arrow-alt-circle-right fa-4x"></i>
+        <!--<div id="btn-overlay"></div>-->
+        <div id='prev'>
+          <i class="fas fa-arrow-alt-circle-left fa-4x"></i>
+        </div>
+        <div id='next'>
+          <i class="fas fa-arrow-alt-circle-right fa-4x"></i>
         </div>
       </div>
+    </div>
+    <!-- Alert -->
+    <div class='customAlert'>
+      <p class='message'></p>
+      <input type='button' class='confirmButton' value='Ok'>
     </div>
     <iframe id="space-widget" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/558303876&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"></iframe>
     <iframe id="vintage-widget" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/270811947&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
@@ -55,7 +65,8 @@
     <iframe id="shuttle-widget" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/55323280&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
     <iframe id="discovery-widget" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/55322828&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/alert.js"></script>
   </body>
 </html>
