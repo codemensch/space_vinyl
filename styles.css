@@ -24,6 +24,7 @@ body{
   #vinyl{
     position: absolute;
     height: 340px;
+    cursor: pointer;
   }
 
     #vinyl-rotate{
@@ -47,6 +48,7 @@ body{
     position: absolute;
     -webkit-transition: margin-left .5s;
     border-radius: 2%;
+    cursor: pointer;
   }
 
       #space-sounds{
@@ -90,7 +92,6 @@ body{
     opacity: 0.4;
     transition: opacity .5s;
     cursor: pointer;
-    /*z-index: 100;*/
   }
 
     #prev:hover, #next:hover{
@@ -167,6 +168,7 @@ body{
     margin-left: 18px;
     transition-duration: .25s;
     z-index: 100;
+    cursor: pointer;
   }
 
     #knob-select{
@@ -196,6 +198,7 @@ body{
     -webkit-transition: transform 2s;
     -moz-transition: transform 2s;
     -o-transition: transform 2s;
+    cursor: pointer;
   }
 
     .tone-arm-off{
