@@ -24,3 +24,4 @@ Go here to view the app https://codemensch.github.io/space_vinyl/
 -Fix choppy fadeIn() happening in Firefox and Safari.
 -Fix choppy fade out happening on alert confirm.
 -Object orientation of "albums" for future album information feature.
+-Bug affecting ability to reload a widget (only way to start at beginning of playlist is to refresh page).

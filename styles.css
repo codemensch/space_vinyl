@@ -551,10 +551,10 @@ body{
 /*SoundCloud*/
 
 iframe {
-  display: none;
-  /*max-width: 10rem;
+  top: 0;
+  max-width: 10rem;
   opacity: 0;
-  position: absolute;*/
+  position: absolute;
 }
 
 /* Media Queries */

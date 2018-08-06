@@ -16,7 +16,6 @@ $(window).bind("load", function() {
   $('#on-off-knob').click(function(){
     //Check if animation in progress
     if(animated == false){
-      //$('#matt').css('animation-delay', '0s');
       //Animation in progress
       animated = true;
       //Make sure not playing
@@ -29,7 +28,6 @@ $(window).bind("load", function() {
           onOff = 'on';
           //Check rotate vinyl or matt
           if(recordLoaded == true){
-            //$('#vinyl-rotate').css('animation-delay', '0s');
             //Rotate vinyl
             $('#vinyl-rotate').css('animation-play-state', 'running');
           }
@@ -68,7 +66,7 @@ $(window).bind("load", function() {
   //Put all albums in a node object
   let albums = document.getElementsByClassName('album');
   //Put all soundcloud playlists in a node object
-  let playlists = document.getElementsByTagName('iframe');
+  let playlists = document.getElementsByClassName('iframes');
   //Make album on top of the stack/last in the node the active album
   let activeAlbum = albums[albums.length - 1];
   //Get the active albums ID
@@ -77,6 +75,11 @@ $(window).bind("load", function() {
   let activeAlbumPre = activeAlbumID.split('-');
   //Attach prefix to -widget to call associated iframe
   let activePlaylist = activeAlbumPre[0] + '-widget';
+  //Get SRC of the iframe
+  let widgetSRC = document.getElementById(activePlaylist).getAttribute('src');
+  //widgetSRC = widgetSRC + '&start_track=0';
+  
+  console.log(widgetSRC);
 
   //Refresh album variables after append/prepend
   function albumRefresh(){
@@ -84,25 +87,40 @@ $(window).bind("load", function() {
     activeAlbumID = activeAlbum.id;
     activeAlbumPre = activeAlbumID.split('-');
     activePlaylist = activeAlbumPre[0] + '-widget';
+    widgetSRC = document.getElementById(activePlaylist).getAttribute('src');
+    console.log(widgetSRC);
     widget = SC.Widget(document.getElementById(activePlaylist));
+
+    soundCloud();
+    console.log(activePlaylist);
   }
   
   //Soundcloud Widget API
   //Import active playlist
   var widget = SC.Widget(document.getElementById(activePlaylist));
-  widget.bind(SC.Widget.Events.READY, function() {
-    console.log('Ready...');
-    widget.bind(SC.Widget.Events.PLAY, function() {
-      // get information about currently playing sound
-      widget.getCurrentSound(function(currentSound) {
-        console.log(currentSound.title);
-      });
-      //get info about playlist
-      widget.getSounds(function(playlist) {
-        console.log(playlist);
+  function soundCloud(){
+    widget.bind(SC.Widget.Events.READY, function() {
+      console.log('ready');
+      widget.getSounds(function(currentPlaylist){
+        let lastSound = currentPlaylist.length - 1;
+        widget.bind(SC.Widget.Events.PLAY, function() {
+          console.log("playing");
+          widget.getCurrentSoundIndex(function(currentSoundIndex){
+            console.log(currentSoundIndex);
+            if(currentSoundIndex == lastSound){
+              console.log('this is the last sound');
+              widget.bind(SC.Widget.Events.FINISH, function() {
+                console.log("sound finished");
+                returnArm();
+              });
+            }
+          });
+        });
       });
     });
-  });
+  }
+
+  soundCloud();
 
   //Choose Album/Playlist
   $('#prev, #next').click(function(){
@@ -168,6 +186,19 @@ $(window).bind("load", function() {
     }
   });
 
+  var returnArm = function(){
+    animated = true;
+    //Stop playing
+    toneArm = 'off';
+    let toneArmReturn = document.getElementById('tone-arm');
+    toneArmReturn.setAttribute('class', 'tone-arm-off');
+    //Don't play sound, playlist is done
+    //Return tone arm
+    $('#tone-arm').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+      //Wait for transition to end
+      animated = false;
+    });
+  }
 
   //Tone arm, play/pause action
   $('#tone-arm').click(function() {
