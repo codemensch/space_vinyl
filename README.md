@@ -20,6 +20,7 @@ the UI using the API's get functions is a planned addition. Enjoy!
 Go here to view the app https://codemensch.github.io/space_vinyl/
 
 **Maintenance to be done**
+-Loading message for when app is ready to use.
 -Re-factoring of css and javascript where possible.
 -Fix choppy fadeIn() happening in Firefox and Safari.
 -Fix choppy fade out happening on alert confirm.
