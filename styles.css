@@ -4,6 +4,22 @@ body{
   min-width: 530px;
 }
 
+/*Loader code provided by https://www.w3schools.com/howto/howto_css_loader.asp */
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: 50%;
+    margin-left: -76px;
+    top: 50%;
+    margin-top: -76px;
+    transition: opacity 1s;
+}
+
 #wrapper{
   text-align: center;
   display: none;
@@ -252,6 +268,26 @@ body{
     }
 
 /*CSS Animations*/
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+  @-webkit-keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
+  @-moz-keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
+  @-o-keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
 @keyframes animate-album {
   0%{
     margin-left: 0px;
