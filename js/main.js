@@ -25,10 +25,12 @@ $(window).bind("load", function() {
 
     //On/Off knob action
     $('#on-off-knob').click(function(){
+      console.log(animated);
       //Check if animation in progress
       if(animated == false){
         //Animation in progress
         animated = true;
+        console.log(animated);
         //Make sure not playing
         if(toneArm == 'off'){
           //Turn table on or off
@@ -37,6 +39,7 @@ $(window).bind("load", function() {
           if(onOff == 'off'){
             //Update action state
             onOff = 'on';
+            console.log(onOff);
             //Check rotate vinyl or matt
             if(recordLoaded == true){
               //Rotate vinyl
@@ -51,6 +54,7 @@ $(window).bind("load", function() {
           else {
             //Change on/off state
             onOff = 'off';
+            console.log(onOff);
             //Choose vinyl or matt to stop rotating
             if(recordLoaded == true){
               //Stop vinyl
@@ -71,6 +75,7 @@ $(window).bind("load", function() {
       }
       //Animation is finished
       animated = false;
+      console.log(animated);
     });
     
 
