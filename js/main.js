@@ -1,5 +1,6 @@
 //Immediately pause infinite rotation of vinyl and platter
 $('#vinyl-rotate, #matt').css('animation-play-state', 'paused');
+//Fade in the loading graphic
 $('.loader').fadeIn(1000);
 
 //Wait for everything to load before running
