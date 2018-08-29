@@ -43,11 +43,15 @@ $(window).bind("load", function() {
             //Check rotate vinyl or matt
             if(recordLoaded == true){
               //Rotate vinyl
-              $('#vinyl-rotate').css('animation-play-state', 'running');
+              //$('#vinyl-rotate').css('animation-play-state', 'running');
+              let spinVinyl = document.getElementById('vinyl-rotate');
+              spinVinyl.style.animationPlayState = 'running';
             }
             else{
               //Rotate matt
-              $('#matt').css('animation-play-state', 'running');  
+              //$('#matt').css('animation-play-state', 'running');
+              let spinMatt = document.getElementById('matt');
+              spinMatt.style.animationPlayState = 'running';  
             }
           }
           //Table is on
