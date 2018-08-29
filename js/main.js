@@ -14,6 +14,8 @@ $(window).bind("load", function() {
 
   $('.loader').one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function(e) {
 
+    $('.loader').css('animation-play-state', 'paused');
+
     //Fade in turntable and albums
     $('#wrapper').fadeIn(3000);
 
