@@ -9,7 +9,8 @@ mattElement.style.animationPlayState = 'paused';
 $('.loader').fadeIn(1000);
 
 //Wait for everything to load before running
-$(window).bind("load", function() {
+$(document).ready(function(){
+//$(window).bind("load", function() {
   $('.loader').css('opacity', 0);
 
   $('.loader').one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function(e) {
@@ -26,9 +27,7 @@ $(window).bind("load", function() {
     let animated = false;
 
     //On/Off knob action
-    //$('#on-off-knob').on('click', function(){
-    //document.getElementById('on-off-knob').onclick = function(){ 
-    function knobClick(){ 
+    $('#on-off-knob').on('click', function(){
       console.log(animated);
       //Check if animation in progress
       if(animated == false){
@@ -84,7 +83,7 @@ $(window).bind("load", function() {
       //Animation is finished
       animated = false;
       console.log(animated);
-    };
+    });
     
 
     //Put all albums in a node object
