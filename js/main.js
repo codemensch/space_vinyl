@@ -27,7 +27,8 @@ $(window).bind("load", function() {
 
     //On/Off knob action
     //$('#on-off-knob').on('click', function(){
-    document.getElementById('on-off-knob').onclick = function(){  
+    //document.getElementById('on-off-knob').onclick = function(){ 
+    function knobClick(){ 
       console.log(animated);
       //Check if animation in progress
       if(animated == false){
