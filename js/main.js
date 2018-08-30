@@ -26,7 +26,8 @@ $(window).bind("load", function() {
     let animated = false;
 
     //On/Off knob action
-    $('#on-off-knob').on('click', function(){
+    //$('#on-off-knob').on('click', function(){
+    document.getElementById('on-off-knob').onclick = function(){  
       console.log(animated);
       //Check if animation in progress
       if(animated == false){
@@ -82,7 +83,7 @@ $(window).bind("load", function() {
       //Animation is finished
       animated = false;
       console.log(animated);
-    });
+    };
     
 
     //Put all albums in a node object
