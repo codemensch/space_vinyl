@@ -26,7 +26,7 @@ $(window).bind("load", function() {
     let animated = false;
 
     //On/Off knob action
-    $('#on-off-knob').click(function(){
+    $('#on-off-knob').on('click', function(){
       console.log(animated);
       //Check if animation in progress
       if(animated == false){
