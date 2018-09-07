@@ -152,7 +152,7 @@ body{
     -o-border-radius: 100%;
     border-radius: 100%;
     border: 5px solid black;
-    background-color: #adaaaa;
+    background-image: radial-gradient(circle, #adaaaa , #666, black);
     margin-top: 285px;
     margin-left: 18px;
     transition: transform .25s;
