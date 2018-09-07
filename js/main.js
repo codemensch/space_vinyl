@@ -113,14 +113,20 @@ $(window).on("load", function() {
   //Import active playlist
   var widget = SC.Widget(document.getElementById(activePlaylist));
   function soundCloud(){
+    //Load widget API
     widget.bind(SC.Widget.Events.READY, function() {
       console.log('ready');
+      //Get array of sound objects
       widget.getSounds(function(currentPlaylist){
+        //Last sound in playlist
         let lastSound = currentPlaylist.length - 1;
+        //Widget play event
         widget.bind(SC.Widget.Events.PLAY, function() {
           console.log("playing");
+          //Get the index of the current sound
           widget.getCurrentSoundIndex(function(currentSoundIndex){
             console.log(currentSoundIndex);
+            //If last sound return the arm
             if(currentSoundIndex == lastSound){
               console.log('this is the last sound');
               widget.bind(SC.Widget.Events.FINISH, function() {
@@ -263,10 +269,7 @@ $(window).on("load", function() {
           $('#tone-arm').toggleClass('tone-arm-on tone-arm-off');
           //Play sound
           play();
-          $('#tone-arm').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-            //Wait for transition to end
-            animated = false;
-          });
+          returnArm();
         }
       }
     }
