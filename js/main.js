@@ -28,7 +28,6 @@ $(window).on("load", function() {
     if(animated == false){
       //Animation in progress
       animated = true;
-      console.log(animated);
       //Make sure not playing
       if(toneArm == 'off'){
         //Turn table on or off
@@ -37,7 +36,6 @@ $(window).on("load", function() {
         if(onOff == 'off'){
           //Update action state
           onOff = 'on';
-          console.log(onOff);
           //Check rotate vinyl or matt
           if(recordLoaded == true){
             //Rotate vinyl
@@ -52,7 +50,6 @@ $(window).on("load", function() {
         else {
           //Change on/off state
           onOff = 'off';
-          console.log(onOff);
           //Choose vinyl or matt to stop rotating
           if(recordLoaded == true){
             //Stop vinyl
@@ -66,14 +63,11 @@ $(window).on("load", function() {
       }
       //Animation already in progress
       else{
-        alert("Album playing. Click tone arm to stop, then click the on/off knob to turn off the table.", function(){
-          console.log("Callback executed");
-        })
+        alert("Album playing. Click tone arm to stop, then click the on/off knob to turn off the table.")
       }
     }
     //Animation is finished
     animated = false;
-    console.log(animated);
   });
   
 
@@ -91,9 +85,6 @@ $(window).on("load", function() {
   let activePlaylist = activeAlbumPre[0] + '-widget';
   //Get SRC of the iframe
   let widgetSRC = document.getElementById(activePlaylist).getAttribute('src');
-  //widgetSRC = widgetSRC + '&start_track=0';
-  
-  console.log(widgetSRC);
 
   //Refresh album variables after append/prepend
   function albumRefresh(){
@@ -102,11 +93,8 @@ $(window).on("load", function() {
     activeAlbumPre = activeAlbumID.split('-');
     activePlaylist = activeAlbumPre[0] + '-widget';
     widgetSRC = document.getElementById(activePlaylist).getAttribute('src');
-    console.log(widgetSRC);
     widget = SC.Widget(document.getElementById(activePlaylist));
-
     soundCloud();
-    console.log(activePlaylist);
   }
   
   //Soundcloud Widget API
@@ -115,22 +103,19 @@ $(window).on("load", function() {
   function soundCloud(){
     //Load widget API
     widget.bind(SC.Widget.Events.READY, function() {
-      console.log('ready');
       //Get array of sound objects
       widget.getSounds(function(currentPlaylist){
         //Last sound in playlist
         let lastSound = currentPlaylist.length - 1;
         //Widget play event
         widget.bind(SC.Widget.Events.PLAY, function() {
-          console.log("playing");
           //Get the index of the current sound
           widget.getCurrentSoundIndex(function(currentSoundIndex){
-            console.log(currentSoundIndex);
+            let currentTitle = currentPlaylist[currentSoundIndex].title;
+            document.getElementById('title').innerHTML = currentTitle;
             //If last sound return the arm
             if(currentSoundIndex == lastSound){
-              console.log('this is the last sound');
               widget.bind(SC.Widget.Events.FINISH, function() {
-                console.log("sound finished");
                 returnArm();
               });
             }
@@ -200,9 +185,7 @@ $(window).on("load", function() {
     }
     //Record already loaded
     else{
-      alert("Record already loaded. Unload record before choosing a new one.", function(){
-        console.log("Callback executed");
-      })
+      alert("Record already loaded. Unload record before choosing a new one.")
     }
   });
 
@@ -213,6 +196,8 @@ $(window).on("load", function() {
     let toneArmReturn = document.getElementById('tone-arm');
     toneArmReturn.setAttribute('class', 'tone-arm-off');
     //Don't play sound, playlist is done
+    //Clear title
+    document.getElementById('title').innerHTML = '';
     //Return tone arm
     $('#tone-arm').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
       //Wait for transition to end
@@ -230,21 +215,15 @@ $(window).on("load", function() {
       }
       //Table is off and no record loaded
       if (onOff == 'off' && recordLoaded == false){
-        alert("No record loaded. Load a record and turn on the table. Then click the tone arm to play.", function(){
-          console.log("Callback executed");
-        })
+        alert("No record loaded. Load a record and turn on the table. Then click the tone arm to play.")
       }
       //Table is off and record is loaded
       else if(onOff == 'off' && recordLoaded == true) {
-        alert("Table not on. Turn on the table, then click the tone arm to play.", function(){
-          console.log("Callback executed");
-        })
+        alert("Table not on. Turn on the table, then click the tone arm to play.")
       }
       //Table is on but no record loaded
       else if(onOff == 'on' && recordLoaded == false){
-        alert("No record loaded. Turn off the table, load a record, and turn the table back on. Then click the tone arm to play.", function(){
-          console.log("Callback executed");
-        })  
+        alert("No record loaded. Turn off the table, load a record, and turn the table back on. Then click the tone arm to play.")  
       }
       //Table is on and record loaded
       else{
@@ -309,27 +288,19 @@ $(window).on("load", function() {
       //Album click exceptions
       //Table is off and record is loaded
       else if(onOff == 'off' && recordLoaded == true){
-        alert("Record already loaded. Click the vinyl to return or turn on table to play", function(){
-          console.log("Callback executed");
-        })
+        alert("Record already loaded. Click the vinyl to return or turn on table to play")
       }
       //Table is on and record is loaded
       else if(onOff == 'on' && recordLoaded == true && toneArm == 'off'){
-        alert("Record already loaded. Click the tone arm to play, or turn off table to unload", function(){
-          console.log("Callback executed");
-        })
+        alert("Record already loaded. Click the tone arm to play, or turn off table to unload")
       }
       //Record is playing
       else if(onOff == 'on' && recordLoaded == true && toneArm == 'on'){
-        alert("Record already playing. Click the tone arm to stop playing, turn off turntable, and click the vinyl to return and choose a new album", function(){
-          console.log("Callback executed");
-        })
+        alert("Record already playing. Click the tone arm to stop playing, turn off turntable, and click the vinyl to return and choose a new album")
       }
       //Table is on
       else{
-        alert("Turn off table to load album.", function(){
-          console.log("Callback executed");
-        })
+        alert("Turn off table to load album.")
       }
     }
   });
@@ -369,32 +340,12 @@ $(window).on("load", function() {
       //Vinyl click exceptions
       //Table is on tone arm is off
       else if(onOff == 'on' && toneArm == 'off'){
-        alert("Turn off table to unload album or click the tone arm to play.", function(){
-          console.log("Callback executed");
-        })
+        alert("Turn off table to unload album or click the tone arm to play.")
       }
       //Record playing
       else {
-        alert("Album playing. Click tone arm to stop and turn off table to unload album.", function(){
-          console.log("Callback executed");
-        })
+        alert("Album playing. Click tone arm to stop and turn off table to unload album.")
       }
     }
   }); 
-
-
-  /*
-  function getArtwork(){
-    let contents = $('#sc-widget').contents();
-    console.log(contents);
-    //let artwork = document.querySelectorAll('iframe');
-    //console.log(artwork);
-    //let albums = document.querySelectorAll('.album');
-    //for (let i=0; i<artwork.length; i++){
-      //albums[i].style.backgroundImage = artwork[i].style.backgroundImage;
-    //}
-  //}
-
-  getArtwork();
-  */
 });
